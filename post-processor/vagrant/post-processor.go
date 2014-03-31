@@ -24,6 +24,7 @@ var builtins = map[string]string{
 	"packer.parallels":          "parallels",
 	"MSOpenTech.hyperv":         "hyperv",
 	"transcend.qemu":            "libvirt",
+	"ustream.lxc":               "lxc",
 }
 
 type Config struct {
@@ -237,6 +238,8 @@ func providerForName(name string) Provider {
 		return new(AWSProvider)
 	case "digitalocean":
 		return new(DigitalOceanProvider)
+	case "lxc":
+		return new(LxcProvider)
 	case "virtualbox":
 		return new(VBoxProvider)
 	case "vmware":
